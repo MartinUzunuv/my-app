@@ -1,8 +1,9 @@
 import React from 'react'
+import './JengaPart.css'
 
 const JengaPart = () => {
   return (
-    <div>JengaPart</div>
+    <div className='JengaPart'>JengaPart</div>
   )
 }
 
