@@ -8,3 +8,8 @@
     width: 500px;
     min-height: 600px;
 }
+
+.Canvas {
+    background-color: blue;
+    width: 100%;
+}
