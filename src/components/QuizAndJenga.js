@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import QuizPart from "./QuizPart";
+import JengaPart from "./JengaPart";
 
 const QuizAndJenga = () => {
   return (
-    <div>QuizAndJenga</div>
-  )
-}
+    <div>
+      <QuizPart />
+      <JengaPart />
+    </div>
+  );
+};
 
-export default QuizAndJenga
+export default QuizAndJenga;
