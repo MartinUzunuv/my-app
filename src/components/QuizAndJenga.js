@@ -19,7 +19,7 @@ const QuizAndJenga = () => {
   return (
     <div className="QuizAndJenga">
       <QuizPart />
-      <JengaPart removeBlock={removeBlock} blocks={blocks} />
+      <JengaPart removeBlock={removeBlock} blocks={blocks} setBlocks={setBlocks} />
     </div>
   );
 };
