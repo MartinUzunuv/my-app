@@ -1,21 +1,25 @@
 import React from "react";
 import QuizPart from "./QuizPart";
 import JengaPart from "./JengaPart";
-import "./QuizAndJenga.css"
+import "./QuizAndJenga.css";
+import { useState } from "react";
 
 const QuizAndJenga = () => {
+  const [blocks, setBlocks] = useState([
+    { exist1: true, exist2: true, exist3: true },
+    { exist1: true, exist2: true, exist3: true },
+    { exist1: true, exist2: true, exist3: true },
+    { exist1: true, exist2: true, exist3: true },
+  ]);
 
-  const draw = (ctx, frameCount) => {
-    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
-    ctx.fillStyle = '#000000'
-    
-    ctx.fillRect(10,100,100,100)
-  }
+  const [removeBlock, setRemoveBlock] = useState(true)
+
   
+
   return (
     <div className="QuizAndJenga">
       <QuizPart />
-      <JengaPart draw={draw}/>
+      <JengaPart removeBlock={removeBlock} blocks={blocks} />
     </div>
   );
 };
