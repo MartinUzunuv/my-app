@@ -1,0 +1,7 @@
+.QuizAndJenga {
+    display: flex;
+    flex-flow: column wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+}
