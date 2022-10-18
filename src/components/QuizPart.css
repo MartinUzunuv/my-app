@@ -8,3 +8,17 @@
     width: 500px;
     min-height: 600px;
 }
+
+.Form {
+    text-align: left;
+    padding: 5px;
+}
+
+.Answer {
+    margin-top: 5px;
+    padding: 3px;
+    text-align: left;
+    border: solid;
+    border-color: black;
+    border-radius: 10px;
+}

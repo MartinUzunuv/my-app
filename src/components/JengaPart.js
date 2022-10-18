@@ -23,7 +23,7 @@ const JengaPart = ({ removeBlock, blocks, setBlocks }) => {
 
   const MouseDown = ({ nativeEvent }) => {
     const { offsetX, offsetY } = nativeEvent;
-    //console.log(offsetX, offsetY)
+    console.log(offsetX, offsetY)
     if (removeBlock) {
       for (let i = 0; i < blocks.length; i++) {
         if (blocks[i].exist1) {
