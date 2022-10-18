@@ -13,7 +13,7 @@ const QuizPart = () => {
       t: "Lenovo",
     },
     {
-      q: "my hair id",
+      q: "my hair is",
       a: "fake",
       b: "none",
       c: "perfect",
@@ -35,16 +35,19 @@ const QuizPart = () => {
   const onSubmit = (e) => {
     e.preventDefault()
     var ans = document.getElementsByName('ans');
+    let isCorect = false
     for(let i = 0; i < ans.length; i++){
       if(ans[i].checked){
-        if(ans[i].value == question.t){
-          console.log("yes")
-        }else{
-          console.log("no")
+        if(ans[i].value === question.t){
+          isCorect = true
         }
       }
     }
-
+    if(isCorect === true){
+      console.log("yes")
+    }else{
+      console.log("no")
+    }
 
 
     document.getElementById("Question-form").reset();
