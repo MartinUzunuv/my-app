@@ -59,8 +59,9 @@ const QuizPart = ({ setRemoveBlock, removeBlock }) => {
   return (
     <div className="QuizPart">
       {!removeBlock ? (
+        <div>
+        <p className="P">{question.q}</p>
         <form className="Form" id="Question-form" onSubmit={onSubmit}>
-          {question.q}
           <div className="Answer">
             <label className="Label" htmlFor="ra">
               <input type="radio" name="ans" id="ra" value={question.a} />
@@ -87,8 +88,9 @@ const QuizPart = ({ setRemoveBlock, removeBlock }) => {
           </div>
           <input className="SubmitOk" type="submit" value="OK" />
         </form>
+        </div>
       ) : (
-        <p>remove a block</p>
+        <p className="P" >remove a block</p>
       )}
     </div>
   );

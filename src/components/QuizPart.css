@@ -1,5 +1,5 @@
 .QuizPart {
-    background-color: rgb(174, 174, 247);
+    background-color: #8BCBFC;
     border: solid;
     border-color: black;
     border-radius: 10px;
@@ -12,31 +12,50 @@
 
 .Form {
     text-align: left;
-    padding: 5px;
+    padding: 15px;
+    padding-top: 0px;
 }
 
 .SubmitOk {
     font-size: large;
-    font-weight: bold;
+    font-weight: bolder;
     margin: 20px;
     float: right;
-    color: rgb(225, 225, 245);
-    background-color: rgb(128, 128, 254);
-    border: aliceblue;
+    color: #A8EEFF;
+    background-color: #83BDF7;
+    border: none;
     border-radius: 5px;
     padding: 10px;
     padding-left: 20px;
     padding-right: 20px;
+    transition-duration: 0.4s;
+}
+
+.SubmitOk:hover {
+    box-shadow: 0px 0px 4px 1px #90E6FC;
 }
 
 .Answer {
-    background-color: aliceblue;
+    background-color: #A8EEFF;
     margin-top: 5px;
     padding: 3px;
     text-align: left;
     border: solid;
     border-color: black;
     border-radius: 10px;
+    font-size:medium;
+    font-weight: bold;
+    transition-duration: 0.4s;
+}
+
+.Answer:hover {
+    background-color: #7fb7c5;
+}
+
+.P {
+    font-size:medium;
+    font-weight: bold;
+    padding-left: 20px;
 }
 
 .Label {
