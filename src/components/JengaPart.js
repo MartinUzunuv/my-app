@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import "./JengaPart.css";
 
-const JengaPart = ({ removeBlock, blocks, setBlocks }) => {
+const JengaPart = ({ removeBlock, blocks, setBlocks, setRemoveBlock }) => {
   const canvasRef = useRef(null);
 
   const draw = (ctx) => {
@@ -42,6 +42,7 @@ const JengaPart = ({ removeBlock, blocks, setBlocks }) => {
               });
             }
             temp[i].exist1 = false;
+            setRemoveBlock(false)
             setBlocks(temp);
           }
         }
@@ -62,6 +63,7 @@ const JengaPart = ({ removeBlock, blocks, setBlocks }) => {
             }
             temp[i].exist2 = false;
             setBlocks(temp);
+            setRemoveBlock(false)
           }
         }
         if (blocks[i].exist3) {
@@ -81,6 +83,7 @@ const JengaPart = ({ removeBlock, blocks, setBlocks }) => {
             }
             temp[i].exist3 = false;
             setBlocks(temp);
+            setRemoveBlock(false)
           }
         }
       }

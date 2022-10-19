@@ -12,14 +12,14 @@ const QuizAndJenga = () => {
     { exist1: true, exist2: true, exist3: true },
   ]);
 
-  const [removeBlock, setRemoveBlock] = useState(true)
+  const [removeBlock, setRemoveBlock] = useState(false)
 
   
 
   return (
     <div className="QuizAndJenga">
-      <QuizPart />
-      <JengaPart removeBlock={removeBlock} blocks={blocks} setBlocks={setBlocks} />
+      <QuizPart setRemoveBlock={setRemoveBlock} removeBlock={removeBlock} />
+      <JengaPart removeBlock={removeBlock} blocks={blocks} setBlocks={setBlocks} setRemoveBlock={setRemoveBlock} />
     </div>
   );
 };

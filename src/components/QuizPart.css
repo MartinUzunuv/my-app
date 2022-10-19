@@ -14,6 +14,11 @@
     padding: 5px;
 }
 
+.SubmitOk {
+    margin: 20px;
+    float: right;
+}
+
 .Answer {
     margin-top: 5px;
     padding: 3px;

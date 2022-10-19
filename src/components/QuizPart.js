@@ -2,7 +2,7 @@ import React from "react";
 import "./QuizPart.css";
 import { useState } from "react";
 
-const QuizPart = () => {
+const QuizPart = ({ setRemoveBlock, removeBlock }) => {
   const questions = [
     {
       q: "my laptop is",
@@ -47,6 +47,7 @@ const QuizPart = () => {
       console.log("yes")
     }else{
       console.log("no")
+      setRemoveBlock(true)
     }
 
 
@@ -55,7 +56,7 @@ const QuizPart = () => {
   }
 
   return (
-    <div className="QuizPart" >
+    <div className="QuizPart" >{ !removeBlock ?
       <form className="Form" id="Question-form" onSubmit={onSubmit} >
         {question.q}
         <div className="Answer">
@@ -74,8 +75,8 @@ const QuizPart = () => {
           <input type="radio" name="ans" value={question.d} />
           {question.d}
         </div>
-        <input type='submit' value='Save'/>
-      </form>
+        <input className="SubmitOk" type='submit' value='ok'/>
+      </form> : <p>remove a block</p>}
     </div>
   );
 };
