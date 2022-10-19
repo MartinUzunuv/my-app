@@ -1,4 +1,5 @@
 .QuizPart {
+    background-color: rgb(174, 174, 247);
     border: solid;
     border-color: black;
     border-radius: 10px;
@@ -15,15 +16,30 @@
 }
 
 .SubmitOk {
+    font-size: large;
+    font-weight: bold;
     margin: 20px;
     float: right;
+    color: rgb(225, 225, 245);
+    background-color: rgb(128, 128, 254);
+    border: aliceblue;
+    border-radius: 5px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .Answer {
+    background-color: aliceblue;
     margin-top: 5px;
     padding: 3px;
     text-align: left;
     border: solid;
     border-color: black;
     border-radius: 10px;
+}
+
+.Label {
+    display: block;
+    width: 100%;
 }
