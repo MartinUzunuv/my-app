@@ -1,13 +1,13 @@
 .QuizPart {
-    background-color: #8BCBFC;
-    border: solid;
-    border-color: black;
+    background-color: #6DBFD1;
+    /* border: solid;
+    border-color: rgb(95, 17, 0); */
     border-radius: 10px;
     margin: 20px;
     display: inline-block;
     max-width: 90%;
     width: 500px;
-    min-height: 600px;
+    /* min-height: 600px; */
 }
 
 .Form {
@@ -21,8 +21,8 @@
     font-weight: bolder;
     margin: 20px;
     float: right;
-    color: #A8EEFF;
-    background-color: #83BDF7;
+    color: rgb(95, 17, 0);
+    background-color: #FF7D63;
     border: none;
     border-radius: 5px;
     padding: 10px;
@@ -32,16 +32,18 @@
 }
 
 .SubmitOk:hover {
-    box-shadow: 0px 0px 4px 1px #90E6FC;
+    box-shadow: 0px 0px 4px 1px #c1433a;
+    background-color: #f85e53;
 }
 
 .Answer {
-    background-color: #A8EEFF;
+    background-color: #FFAC63;
+    color: rgb(95, 17, 0);
     margin-top: 5px;
     padding: 3px;
     text-align: left;
-    border: solid;
-    border-color: black;
+    /* border: solid;
+    border-color: rgb(95, 17, 0); */
     border-radius: 10px;
     font-size:medium;
     font-weight: bold;
@@ -49,10 +51,11 @@
 }
 
 .Answer:hover {
-    background-color: #7fb7c5;
+    background-color: #FF7D63;
 }
 
 .P {
+    color: rgb(95, 17, 0);
     font-size:medium;
     font-weight: bold;
     padding-left: 20px;
