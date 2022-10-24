@@ -6,20 +6,28 @@ const JengaPart = ({ removeBlock, blocks, setBlocks, setRemoveBlock }) => {
 
   const CW = useRef(0)
 
+  const logFace = useRef(new Image())
+
+  logFace.current.src = 'https://static.planetminecraft.com/files/image/minecraft/texture-pack/2020/428/13530476-cover_l.webp'
+
+  const log = useRef(new Image())
+
+  log.current.src = 'https://static.planetminecraft.com/files/image/minecraft/texture-pack/2020/428/13530476-cover_l.webp'
+
   const draw = (ctx) => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     ctx.fillStyle = "#825B1F";
     for (let i = 0; i < blocks.length; i++) {
       if (blocks[i].exist1) {
-        ctx.fillRect(CW.current/4, CW.current/5*4.5 - i * CW.current/4.5, CW.current/10, CW.current/10);
+        ctx.drawImage(logFace.current, CW.current/4, CW.current/5*4.5 - i * CW.current/4.5, CW.current/10, CW.current/10);
       }
       if (blocks[i].exist2) {
-        ctx.fillRect(CW.current/2.2, CW.current/5*4.5 - i * CW.current/4.5, CW.current/10, CW.current/10);
+        ctx.drawImage(logFace.current, CW.current/2.2, CW.current/5*4.5 - i * CW.current/4.5, CW.current/10, CW.current/10);
       }
       if (blocks[i].exist3) {
-        ctx.fillRect(CW.current/1.55, CW.current/5*4.5 - i * CW.current/4.5, CW.current/10, CW.current/10);
+        ctx.drawImage(logFace.current, CW.current/1.55, CW.current/5*4.5 - i * CW.current/4.5, CW.current/10, CW.current/10);
       }
-      ctx.fillRect(CW.current/4.1, CW.current/5*4.5 - i * CW.current/4.5 - CW.current/9, CW.current/1.95, CW.current/10);
+      ctx.drawImage(log.current, CW.current/4.1, CW.current/5*4.5 - i * CW.current/4.5 - CW.current/9, CW.current/1.95, CW.current/10);
     }
   };
 
