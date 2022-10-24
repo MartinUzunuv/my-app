@@ -117,7 +117,7 @@ const JengaPart = ({ removeBlock, blocks, setBlocks, setRemoveBlock }) => {
     return () => {
       window.cancelAnimationFrame(animationFrameId);
     };
-  }, [draw]);
+  });
 
   return (
     <div className="JengaPart">
