@@ -11,15 +11,15 @@ const JengaPart = ({ removeBlock, blocks, setBlocks, setRemoveBlock }) => {
     ctx.fillStyle = "#825B1F";
     for (let i = 0; i < blocks.length; i++) {
       if (blocks[i].exist1) {
-        ctx.fillRect(CW.current/4, CW.current/5*4 - i * 80, CW.current/10, CW.current/10);
+        ctx.fillRect(CW.current/4, CW.current/5*4.5 - i * CW.current/4.5, CW.current/10, CW.current/10);
       }
       if (blocks[i].exist2) {
-        ctx.fillRect(CW.current/2.2, CW.current/5*4 - i * 80, CW.current/10, CW.current/10);
+        ctx.fillRect(CW.current/2.2, CW.current/5*4.5 - i * CW.current/4.5, CW.current/10, CW.current/10);
       }
       if (blocks[i].exist3) {
-        ctx.fillRect(CW.current/1.55, CW.current/5*4 - i * 80, CW.current/10, CW.current/10);
+        ctx.fillRect(CW.current/1.55, CW.current/5*4.5 - i * CW.current/4.5, CW.current/10, CW.current/10);
       }
-      ctx.fillRect(120, CW.current/5*4 - i * 80 - 20, 260, 10);
+      ctx.fillRect(CW.current/4.1, CW.current/5*4.5 - i * CW.current/4.5 - CW.current/9, CW.current/1.95, CW.current/10);
     }
   };
 
@@ -31,9 +31,9 @@ const JengaPart = ({ removeBlock, blocks, setBlocks, setRemoveBlock }) => {
         if (blocks[i].exist1) {
           if (
             offsetX > CW.current/4 &&
-            offsetY > CW.current/5*4 - i * 80 &&
+            offsetY > CW.current/5*4.5 - i * CW.current/4.5 &&
             offsetX < CW.current/4+ CW.current/10 &&
-            offsetY < CW.current/5*4 - i * 80 + CW.current/10
+            offsetY < CW.current/5*4.5 - i * CW.current/4.5 + CW.current/10
           ) {
             let temp = [];
             for (let j = 0; j < blocks.length; j++) {
@@ -51,9 +51,9 @@ const JengaPart = ({ removeBlock, blocks, setBlocks, setRemoveBlock }) => {
         if (blocks[i].exist2) {
           if (
             offsetX > CW.current/2.2 &&
-            offsetY > CW.current/5*4 - i * 80 &&
+            offsetY > CW.current/5*4.5 - i * CW.current/4.5 &&
             offsetX < CW.current/2.2+ CW.current/10 &&
-            offsetY < CW.current/5*4 - i * 80 + CW.current/10
+            offsetY < CW.current/5*4.5 - i * CW.current/4.5 + CW.current/10
           ) {
             let temp = [];
             for (let j = 0; j < blocks.length; j++) {
@@ -71,9 +71,9 @@ const JengaPart = ({ removeBlock, blocks, setBlocks, setRemoveBlock }) => {
         if (blocks[i].exist3) {
           if (
             offsetX > CW.current/1.55 &&
-            offsetY > CW.current/5*4 - i * 80 &&
+            offsetY > CW.current/5*4.5 - i * CW.current/4.5 &&
             offsetX < CW.current/1.55+ CW.current/10 &&
-            offsetY < CW.current/5*4 - i * 80 + CW.current/10
+            offsetY < CW.current/5*4.5 - i * CW.current/4.5 + CW.current/10
           ) {
             let temp = [];
             for (let j = 0; j < blocks.length; j++) {
