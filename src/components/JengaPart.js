@@ -4,34 +4,36 @@ import "./JengaPart.css";
 const JengaPart = ({ removeBlock, blocks, setBlocks, setRemoveBlock }) => {
   const canvasRef = useRef(null);
 
+  const CW = useRef(0)
+
   const draw = (ctx) => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-    ctx.fillStyle = "#000000";
+    ctx.fillStyle = "#825B1F";
     for (let i = 0; i < blocks.length; i++) {
       if (blocks[i].exist1) {
-        ctx.fillRect(130, 400 - i * 80, 50, 50);
+        ctx.fillRect(CW.current/4, CW.current/5*4 - i * 80, CW.current/10, CW.current/10);
       }
       if (blocks[i].exist2) {
-        ctx.fillRect(225, 400 - i * 80, 50, 50);
+        ctx.fillRect(CW.current/2.2, CW.current/5*4 - i * 80, CW.current/10, CW.current/10);
       }
       if (blocks[i].exist3) {
-        ctx.fillRect(320, 400 - i * 80, 50, 50);
+        ctx.fillRect(CW.current/1.55, CW.current/5*4 - i * 80, CW.current/10, CW.current/10);
       }
-      ctx.fillRect(120, 400 - i * 80 - 20, 260, 10);
+      ctx.fillRect(120, CW.current/5*4 - i * 80 - 20, 260, 10);
     }
   };
 
   const MouseDown = ({ nativeEvent }) => {
     const { offsetX, offsetY } = nativeEvent;
-    console.log(offsetX, offsetY)
+    console.log(offsetX, offsetY, CW.current)
     if (removeBlock) {
       for (let i = 0; i < blocks.length; i++) {
         if (blocks[i].exist1) {
           if (
-            offsetX > 130 &&
-            offsetY > 400 - i * 80 &&
-            offsetX < 180 &&
-            offsetY < 400 - i * 80 + 50
+            offsetX > CW.current/4 &&
+            offsetY > CW.current/5*4 - i * 80 &&
+            offsetX < CW.current/4+ CW.current/10 &&
+            offsetY < CW.current/5*4 - i * 80 + CW.current/10
           ) {
             let temp = [];
             for (let j = 0; j < blocks.length; j++) {
@@ -48,10 +50,10 @@ const JengaPart = ({ removeBlock, blocks, setBlocks, setRemoveBlock }) => {
         }
         if (blocks[i].exist2) {
           if (
-            offsetX > 225 &&
-            offsetY > 400 - i * 80 &&
-            offsetX < 275 &&
-            offsetY < 400 - i * 80 + 50
+            offsetX > CW.current/2.2 &&
+            offsetY > CW.current/5*4 - i * 80 &&
+            offsetX < CW.current/2.2+ CW.current/10 &&
+            offsetY < CW.current/5*4 - i * 80 + CW.current/10
           ) {
             let temp = [];
             for (let j = 0; j < blocks.length; j++) {
@@ -68,10 +70,10 @@ const JengaPart = ({ removeBlock, blocks, setBlocks, setRemoveBlock }) => {
         }
         if (blocks[i].exist3) {
           if (
-            offsetX > 320 &&
-            offsetY > 400 - i * 80 &&
-            offsetX < 370 &&
-            offsetY < 400 - i * 80 + 50
+            offsetX > CW.current/1.55 &&
+            offsetY > CW.current/5*4 - i * 80 &&
+            offsetX < CW.current/1.55+ CW.current/10 &&
+            offsetY < CW.current/5*4 - i * 80 + CW.current/10
           ) {
             let temp = [];
             for (let j = 0; j < blocks.length; j++) {
@@ -107,6 +109,9 @@ const JengaPart = ({ removeBlock, blocks, setBlocks, setRemoveBlock }) => {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
     let animationFrameId;
+    canvas.width  = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+    CW.current = context.canvas.width
 
     const render = () => {
       draw(context);
