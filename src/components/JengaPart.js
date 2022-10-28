@@ -8,40 +8,50 @@ const JengaPart = ({ removeBlock, blocks, setBlocks, setRemoveBlock }) => {
 
   const logFace = useRef(new Image())
 
-  logFace.current.src = 'https://static.planetminecraft.com/files/image/minecraft/texture-pack/2020/428/13530476-cover_l.webp'
+  logFace.current.src = 'https://static9.depositphotos.com/1526816/1239/v/450/depositphotos_12398099-stock-illustration-texture.jpg'
 
   const log = useRef(new Image())
 
-  log.current.src = 'https://static.planetminecraft.com/files/image/minecraft/texture-pack/2020/428/13530476-cover_l.webp'
+  log.current.src = 'https://static9.depositphotos.com/1526816/1239/v/450/depositphotos_12398099-stock-illustration-texture.jpg'
 
   const draw = (ctx) => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     ctx.fillStyle = "#825B1F";
+    const cubeSize = CW.current/9.3
+    const minHeigth = CW.current - cubeSize
+    const floorHeigth = CW.current/4.5
+    const center = CW.current/2 - cubeSize/2
+    const spaceBetween = cubeSize/10
     for (let i = 0; i < blocks.length; i++) {
       if (blocks[i].exist1) {
-        ctx.drawImage(logFace.current, CW.current/4, CW.current/5*4.5 - i * CW.current/4.5, CW.current/10, CW.current/10);
+        ctx.drawImage(logFace.current, center - cubeSize - spaceBetween, minHeigth - i * floorHeigth, cubeSize, cubeSize);
       }
       if (blocks[i].exist2) {
-        ctx.drawImage(logFace.current, CW.current/2.2, CW.current/5*4.5 - i * CW.current/4.5, CW.current/10, CW.current/10);
+        ctx.drawImage(logFace.current, center, minHeigth - i * floorHeigth, cubeSize, cubeSize);
       }
       if (blocks[i].exist3) {
-        ctx.drawImage(logFace.current, CW.current/1.55, CW.current/5*4.5 - i * CW.current/4.5, CW.current/10, CW.current/10);
+        ctx.drawImage(logFace.current, center + cubeSize + spaceBetween, minHeigth - i * floorHeigth, cubeSize, cubeSize);
       }
-      ctx.drawImage(log.current, CW.current/4.1, CW.current/5*4.5 - i * CW.current/4.5 - CW.current/9, CW.current/1.95, CW.current/10);
+      ctx.drawImage(log.current, center - cubeSize - spaceBetween, minHeigth - i * floorHeigth - CW.current/9, cubeSize * 3 + spaceBetween*2, cubeSize);
     }
   };
 
   const MouseDown = ({ nativeEvent }) => {
     const { offsetX, offsetY } = nativeEvent;
     console.log(offsetX, offsetY, CW.current)
+    const cubeSize = CW.current/9.3
+    const minHeigth = CW.current - cubeSize
+    const floorHeigth = CW.current/4.5
+    const center = CW.current/2 - cubeSize/2
+    const spaceBetween = cubeSize/10
     if (removeBlock) {
       for (let i = 0; i < blocks.length; i++) {
         if (blocks[i].exist1) {
           if (
-            offsetX > CW.current/4 &&
-            offsetY > CW.current/5*4.5 - i * CW.current/4.5 &&
-            offsetX < CW.current/4+ CW.current/10 &&
-            offsetY < CW.current/5*4.5 - i * CW.current/4.5 + CW.current/10
+            offsetX > center - cubeSize - spaceBetween &&
+            offsetY > minHeigth - i * floorHeigth &&
+            offsetX < center - cubeSize - spaceBetween + cubeSize &&
+            offsetY < minHeigth - i * floorHeigth + cubeSize
           ) {
             let temp = [];
             for (let j = 0; j < blocks.length; j++) {
@@ -58,10 +68,10 @@ const JengaPart = ({ removeBlock, blocks, setBlocks, setRemoveBlock }) => {
         }
         if (blocks[i].exist2) {
           if (
-            offsetX > CW.current/2.2 &&
-            offsetY > CW.current/5*4.5 - i * CW.current/4.5 &&
-            offsetX < CW.current/2.2+ CW.current/10 &&
-            offsetY < CW.current/5*4.5 - i * CW.current/4.5 + CW.current/10
+            offsetX > center &&
+            offsetY > minHeigth - i * floorHeigth &&
+            offsetX < center + cubeSize &&
+            offsetY < minHeigth - i * floorHeigth + cubeSize
           ) {
             let temp = [];
             for (let j = 0; j < blocks.length; j++) {
@@ -78,10 +88,10 @@ const JengaPart = ({ removeBlock, blocks, setBlocks, setRemoveBlock }) => {
         }
         if (blocks[i].exist3) {
           if (
-            offsetX > CW.current/1.55 &&
-            offsetY > CW.current/5*4.5 - i * CW.current/4.5 &&
-            offsetX < CW.current/1.55+ CW.current/10 &&
-            offsetY < CW.current/5*4.5 - i * CW.current/4.5 + CW.current/10
+            offsetX > center + cubeSize + spaceBetween &&
+            offsetY > minHeigth - i * floorHeigth &&
+            offsetX < center + cubeSize + spaceBetween+ cubeSize &&
+            offsetY < minHeigth - i * floorHeigth + cubeSize
           ) {
             let temp = [];
             for (let j = 0; j < blocks.length; j++) {
