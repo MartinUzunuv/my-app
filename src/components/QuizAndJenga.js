@@ -6,10 +6,10 @@ import { useState } from "react";
 
 const QuizAndJenga = () => {
   const [blocks, setBlocks] = useState([
-    { exist1: true, exist2: true, exist3: true },
-    { exist1: true, exist2: true, exist3: true },
-    { exist1: true, exist2: true, exist3: true },
-    { exist1: true, exist2: true, exist3: true },
+    { exist1: true, exist2: true, exist3: true, exist4: true, exist5: true, exist6: true },
+    { exist1: true, exist2: true, exist3: true, exist4: true, exist5: true, exist6: true },
+    { exist1: true, exist2: true, exist3: true, exist4: true, exist5: true, exist6: true },
+    { exist1: true, exist2: true, exist3: true, exist4: true, exist5: true, exist6: true },
   ]);
 
   const [removeBlock, setRemoveBlock] = useState(false)
