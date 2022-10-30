@@ -1,0 +1,11 @@
+.Login {
+    background-color: #6DBFD1;
+    border-radius: 10px;
+    margin: 20px;
+    display: inline-block;
+    max-width: 90%;
+    width: 500px;
+    text-align: left;
+    padding: 15px;
+    padding-top: 0px;
+}
