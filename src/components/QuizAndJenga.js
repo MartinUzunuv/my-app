@@ -4,22 +4,32 @@ import JengaPart from "./JengaPart";
 import "./QuizAndJenga.css";
 import { useState } from "react";
 
-const QuizAndJenga = () => {
-  const [blocks, setBlocks] = useState([
-    { exist1: true, exist2: true, exist3: true, exist4: true, exist5: true, exist6: true },
-    { exist1: true, exist2: true, exist3: true, exist4: true, exist5: true, exist6: true },
-    { exist1: true, exist2: true, exist3: true, exist4: true, exist5: true, exist6: true },
-    { exist1: true, exist2: true, exist3: true, exist4: true, exist5: true, exist6: true },
-  ]);
+const QuizAndJenga = ({ jenga, userName, gameCode }) => {
+  const [blocks, setBlocks] = useState(jenga);
 
   const [removeBlock, setRemoveBlock] = useState(false)
 
-  
+  const sendJenga = (curentJenga) => {
+    fetch("http://localhost:9000/updatejenga",{
+      method: 'POST',
+      headers: {
+        'Content-Type':"application/json"
+      },
+      body:JSON.stringify({curentJenga:curentJenga,userName:userName, gameCode:gameCode}),
+    })
+    .then(res => res.json())
+    .then(res => {
+      // let myJenga = res.jenga
+      // setJenga(myJenga)
+      // console.log(myJenga)
+      // setLogged(true);
+    })
+  }
 
   return (
     <div className="QuizAndJenga">
       <QuizPart setRemoveBlock={setRemoveBlock} removeBlock={removeBlock} />
-      <JengaPart removeBlock={removeBlock} blocks={blocks} setBlocks={setBlocks} setRemoveBlock={setRemoveBlock} />
+      <JengaPart sendJenga={sendJenga} removeBlock={removeBlock} blocks={blocks} setBlocks={setBlocks} setRemoveBlock={setRemoveBlock} />
     </div>
   );
 };

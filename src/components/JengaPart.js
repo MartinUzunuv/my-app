@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import "./JengaPart.css";
 
-const JengaPart = ({ removeBlock, blocks, setBlocks, setRemoveBlock }) => {
+const JengaPart = ({ removeBlock, blocks, setBlocks, setRemoveBlock, sendJenga }) => {
   const canvasRef = useRef(null);
 
   const CW = useRef(0)
@@ -78,6 +78,7 @@ const JengaPart = ({ removeBlock, blocks, setBlocks, setRemoveBlock }) => {
             }
             temp[i].exist1 = false;
             setRemoveBlock(false)
+            sendJenga(temp)
             setBlocks(temp);
           }
         }
@@ -101,6 +102,7 @@ const JengaPart = ({ removeBlock, blocks, setBlocks, setRemoveBlock }) => {
             }
             temp[i].exist2 = false;
             setBlocks(temp);
+            sendJenga(temp)
             setRemoveBlock(false)
           }
         }
@@ -124,6 +126,7 @@ const JengaPart = ({ removeBlock, blocks, setBlocks, setRemoveBlock }) => {
             }
             temp[i].exist3 = false;
             setBlocks(temp);
+            sendJenga(temp)
             setRemoveBlock(false)
           }
         }
@@ -148,6 +151,7 @@ const JengaPart = ({ removeBlock, blocks, setBlocks, setRemoveBlock }) => {
             }
             temp[i].exist4 = false;
             setRemoveBlock(false)
+            sendJenga(temp)
             setBlocks(temp);
           }
         }
@@ -171,6 +175,7 @@ const JengaPart = ({ removeBlock, blocks, setBlocks, setRemoveBlock }) => {
             }
             temp[i].exist5 = false;
             setBlocks(temp);
+            sendJenga(temp)
             setRemoveBlock(false)
           }
         }
@@ -194,6 +199,7 @@ const JengaPart = ({ removeBlock, blocks, setBlocks, setRemoveBlock }) => {
             }
             temp[i].exist6 = false;
             setBlocks(temp);
+            sendJenga(temp)
             setRemoveBlock(false)
           }
         }

@@ -7,6 +7,7 @@ function App() {
   const [logged, setLogged] = useState(false);
   const [userName, setUserName] = useState("");
   const [gameCode, setGameCode] = useState("");
+  const [jenga, setJenga] = useState();
 
   return (
     <div className="App">
@@ -14,10 +15,13 @@ function App() {
       <br/>
       GameCode: {gameCode}
       {logged ? (
-        <QuizAndJenga />
+        <QuizAndJenga jenga={jenga} userName={userName} gameCode={gameCode} />
       ) : (
         <div className="CenterLogin">
           <Login
+          setJenga={setJenga}
+          userName={userName}
+          gameCode={gameCode}
             setLogged={setLogged}
             setUserName={setUserName}
             setGameCode={setGameCode}

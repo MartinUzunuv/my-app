@@ -1,11 +1,24 @@
 import React from "react";
 import "./Login.css";
 
-const Login = ({ setLogged, setUserName, setGameCode }) => {
+const Login = ({ setLogged, setUserName, setGameCode, userName, gameCode, setJenga }) => {
   const onSubmit = (e) => {
     e.preventDefault();
 
+    fetch("http://localhost:9000/login",{
+    method: 'POST',
+    headers: {
+      'Content-Type':"application/json"
+    },
+    body:JSON.stringify({userName:userName, gameCode:gameCode}),
+  })
+  .then(res => res.json())
+  .then(res => {
+    let myJenga = res.jenga
+    setJenga(myJenga)
+    console.log(myJenga)
     setLogged(true);
+  })
   };
 
   return (
