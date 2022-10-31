@@ -1,6 +1,9 @@
 .App {
   text-align: left;
   height: 100vh;
+}
+
+.CenterLogin{
   display: flex;
   align-items: flex-start;
   justify-content: center;

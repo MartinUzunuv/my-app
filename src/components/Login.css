@@ -7,5 +7,57 @@
     width: 500px;
     text-align: left;
     padding: 15px;
-    padding-top: 0px;
+    /* min-height: 300px; */
+}
+
+.SubmitOk {
+    font-size: large;
+    font-weight: bolder;
+    margin: 20px;
+    float: right;
+    color: rgb(95, 17, 0);
+    background-color: #FF7D63;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    transition-duration: 0.4s;
+}
+
+.SubmitOk:hover {
+    box-shadow: 0px 0px 4px 1px #c1433a;
+    background-color: #f85e53;
+}
+
+.TextBox {
+    padding-left: 10px;
+    width: 98%;
+    font-size: large;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    transition-duration: 0.2s;
+    
+    background-color: #FFAC63;
+    color: rgb(95, 17, 0);
+    border-radius: 10px;
+
+    border: none;
+    box-shadow: none;
+}
+
+.TextBox:hover {
+    /* border: solid;
+    border-color: rgb(95, 17, 0); */
+    background-color: #FF7D63;
+}
+
+.Label {
+    font-size: medium;
+    font-weight: bold;
+    padding-left: 5px;
+    color: rgb(95, 17, 0);
 }
