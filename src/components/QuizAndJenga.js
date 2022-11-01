@@ -10,6 +10,8 @@ const QuizAndJenga = ({ jenga, userName, gameCode }) => {
 
   const [removeBlock, setRemoveBlock] = useState(false);
 
+  const [currentPlayer, setCurrentPlayer] = useState(userName);
+
   const sendJenga = (curentJenga) => {
     fetch("http://localhost:9000/updatejenga", {
       method: "POST",
@@ -31,26 +33,28 @@ const QuizAndJenga = ({ jenga, userName, gameCode }) => {
     // })
   };
 
-  // setInterval(() => {
-  //     fetch("http://localhost:9000/getjenga", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({
-  //       gameCode: gameCode,
-  //     }),
-  //   })
-  //   .then(res => res.json())
-  //   .then(res => {
-  //     let myJenga = res
-  //     setBlocks(myJenga)
-  //   })
-  // }, 1000);
+  setTimeout(() => {
+      fetch("http://localhost:9000/getjenga", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        gameCode: gameCode,
+      }),
+    })
+    .then(res => res.json())
+    .then(res => {
+      let myJenga = res.jenga
+      setBlocks(myJenga)
+      let myCurrentPlayer = res.currentPlayer
+      setCurrentPlayer(myCurrentPlayer)
+    })
+  }, 1000);
 
   return (
     <div className="QuizAndJenga">
-      <PlayersBar />
+      <PlayersBar currentPlayer={currentPlayer} />
       <QuizPart setRemoveBlock={setRemoveBlock} removeBlock={removeBlock} />
       <JengaPart
         sendJenga={sendJenga}
