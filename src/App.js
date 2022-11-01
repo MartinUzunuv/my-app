@@ -11,9 +11,9 @@ function App() {
 
   return (
     <div className="App">
-      Username: {userName}
+      {/* Username: {userName}
       <br/>
-      GameCode: {gameCode}
+      GameCode: {gameCode} */}
       {logged ? (
         <QuizAndJenga jenga={jenga} userName={userName} gameCode={gameCode} />
       ) : (
