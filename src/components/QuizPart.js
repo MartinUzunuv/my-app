@@ -2,7 +2,7 @@ import React from "react";
 import "./QuizPart.css";
 import { useState } from "react";
 
-const QuizPart = ({ setRemoveBlock, removeBlock }) => {
+const QuizPart = ({ setRemoveBlock, removeBlock, currentPlayer, userName, sendJenga, blocks }) => {
   const questions = [
     {
       q: "my laptop is",
@@ -47,6 +47,7 @@ const QuizPart = ({ setRemoveBlock, removeBlock }) => {
     }
     if (isCorect === true) {
       console.log("yes");
+      sendJenga(blocks);
     } else {
       console.log("no");
       setRemoveBlock(true);
@@ -58,7 +59,7 @@ const QuizPart = ({ setRemoveBlock, removeBlock }) => {
 
   return (
     <div className="QuizPart">
-      {!removeBlock ? (
+      {(userName === currentPlayer)?(!removeBlock ? (
         <div>
         <p className="P">{question.q}</p>
         <form className="Form" id="Question-form" onSubmit={onSubmit}>
@@ -90,8 +91,8 @@ const QuizPart = ({ setRemoveBlock, removeBlock }) => {
         </form>
         </div>
       ) : (
-        <p className="P" >remove a block</p>
-      )}
+        <p className="P" >remove a block</p>)
+      ):(<p className="P" >Wait for your turn. Now {currentPlayer} is playing.</p>)}
     </div>
   );
 };

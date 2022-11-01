@@ -55,7 +55,7 @@ const QuizAndJenga = ({ jenga, userName, gameCode }) => {
   return (
     <div className="QuizAndJenga">
       <PlayersBar currentPlayer={currentPlayer} />
-      <QuizPart setRemoveBlock={setRemoveBlock} removeBlock={removeBlock} />
+      <QuizPart blocks={blocks} sendJenga={sendJenga} userName={userName} currentPlayer={currentPlayer} setRemoveBlock={setRemoveBlock} removeBlock={removeBlock} />
       <JengaPart
         sendJenga={sendJenga}
         removeBlock={removeBlock}
