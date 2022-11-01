@@ -10,7 +10,7 @@ const QuizAndJenga = ({ jenga, userName, gameCode }) => {
 
   const [removeBlock, setRemoveBlock] = useState(false);
 
-  const [currentPlayer, setCurrentPlayer] = useState(userName);
+  const [currentPlayer, setCurrentPlayer] = useState("");
 
   const sendJenga = (curentJenga) => {
     fetch("http://localhost:9000/updatejenga", {
@@ -24,6 +24,7 @@ const QuizAndJenga = ({ jenga, userName, gameCode }) => {
         gameCode: gameCode,
       }),
     });
+    setCurrentPlayer("")
     // .then(res => res.json())
     // .then(res => {
     //   // let myJenga = res.jenga
