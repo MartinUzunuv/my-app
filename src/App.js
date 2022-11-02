@@ -1,6 +1,7 @@
 import "./App.css";
 import QuizAndJenga from "./components/QuizAndJenga";
 import Login from "./components/Login";
+import StartGame from "./components/StartGame";
 import { useState } from "react";
 
 function App() {
@@ -8,17 +9,21 @@ function App() {
   const [userName, setUserName] = useState("");
   const [gameCode, setGameCode] = useState("");
   const [jenga, setJenga] = useState();
+  const [currentPlayer, setCurrentPlayer] = useState("");
+  const [gameStarted, setGameStarted] = useState(false);
 
   return (
     <div className="App">
       {/* Username: {userName}
       <br/>
       GameCode: {gameCode} */}
-      {logged ? (
-        <QuizAndJenga jenga={jenga} userName={userName} gameCode={gameCode} />
-      ) : (
+      {logged ? (gameStarted?(<QuizAndJenga currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer} jenga={jenga} userName={userName} gameCode={gameCode} />):(
+        <div className="CenterLogin"><StartGame setGameStarted={setGameStarted} gameCode={gameCode} userName={userName} currentPlayer={currentPlayer} /></div>
+      )
+      ) : ( 
         <div className="CenterLogin">
           <Login
+          setCurrentPlayer={setCurrentPlayer}
           setJenga={setJenga}
           userName={userName}
           gameCode={gameCode}

@@ -1,7 +1,7 @@
 import React from "react";
 import "./Login.css";
 
-const Login = ({ setLogged, setUserName, setGameCode, userName, gameCode, setJenga }) => {
+const Login = ({ setLogged, setUserName, setGameCode, userName, gameCode, setJenga, setCurrentPlayer }) => {
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -16,7 +16,8 @@ const Login = ({ setLogged, setUserName, setGameCode, userName, gameCode, setJen
   .then(res => {
     let myJenga = res.jenga
     setJenga(myJenga)
-    console.log(myJenga)
+    let myCurrentPlayer = res.currentPlayer
+    setCurrentPlayer(myCurrentPlayer)
     setLogged(true);
   })
   };

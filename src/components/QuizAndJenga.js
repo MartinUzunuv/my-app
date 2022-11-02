@@ -5,12 +5,10 @@ import "./QuizAndJenga.css";
 import { useState } from "react";
 import PlayersBar from "./PlayersBar";
 
-const QuizAndJenga = ({ jenga, userName, gameCode }) => {
+const QuizAndJenga = ({ jenga, userName, gameCode, currentPlayer, setCurrentPlayer }) => {
   const [blocks, setBlocks] = useState(jenga);
 
   const [removeBlock, setRemoveBlock] = useState(false);
-
-  const [currentPlayer, setCurrentPlayer] = useState("");
 
   const sendJenga = (curentJenga) => {
     fetch("http://localhost:9000/updatejenga", {
@@ -35,6 +33,7 @@ const QuizAndJenga = ({ jenga, userName, gameCode }) => {
   };
 
   setTimeout(() => {
+    if(!removeBlock){
       fetch("http://localhost:9000/getjenga", {
       method: "POST",
       headers: {
@@ -51,6 +50,8 @@ const QuizAndJenga = ({ jenga, userName, gameCode }) => {
       let myCurrentPlayer = res.currentPlayer
       setCurrentPlayer(myCurrentPlayer)
     })
+    }
+      
   }, 1000);
 
   return (

@@ -1,0 +1,38 @@
+.StartGame {
+    background-color: #6DBFD1;
+    border-radius: 10px;
+    margin: 20px;
+    display: inline-block;
+    max-width: 90%;
+    width: 500px;
+    text-align: left;
+    padding: 15px;
+    /* min-height: 300px; */
+}
+
+.Start {
+    font-size: medium;
+    font-weight: bolder;
+    margin: 20px;
+    float: right;
+    color: rgb(95, 17, 0);
+    background-color: #FF7D63;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    transition-duration: 0.4s;
+}
+
+.Start:hover {
+    box-shadow: 0px 0px 4px 1px #c1433a;
+    background-color: #f85e53;
+}
+
+.Text {
+    font-size: medium;
+    font-weight: bold;
+    padding-left: 5px;
+    color: rgb(95, 17, 0);
+}
