@@ -5,9 +5,23 @@
     margin-bottom: 0px;
     display: inline-block;
     max-width: 90%;
-    width: 500px;
     text-align: left;
     padding: 15px;
     width: 90%;
-    height: 20px;
+    display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+.Player {
+    background-color: #FFAC63;
+    color: rgb(95, 17, 0);
+    margin: 0px;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: left;
+    border-radius: 10px;
+    font-size:medium;
+    font-weight: bold;
 }

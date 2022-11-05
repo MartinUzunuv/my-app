@@ -3,17 +3,6 @@ import "./StartGame.css";
 
 const StartGame = ({ currentPlayer, userName, gameCode, setGameStarted }) => {
 
-  const onClick = () => {
-      fetch("http://localhost:9000/startgame", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ gameCode: gameCode }),
-      });
-      setGameStarted(true);
-  };
-
   let inter = setInterval(() => {
     if(!(currentPlayer === userName)){
       fetch("http://localhost:9000/checkstarted", {
@@ -32,10 +21,21 @@ const StartGame = ({ currentPlayer, userName, gameCode, setGameStarted }) => {
         if(gameCheckStarted){
             clearInterval(inter)
         }
-        console.log(1)
     })
     } 
   }, 1000);
+
+  const onClick = () => {
+    fetch("http://localhost:9000/startgame", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ gameCode: gameCode }),
+    });
+    clearInterval(inter)
+    setGameStarted(true);
+};
 
   return (
     <div className="StartGame">
