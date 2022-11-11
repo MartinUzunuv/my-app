@@ -1,11 +1,11 @@
 import React from "react";
-import "./Login.css";
+import "./JoinGame.css";
 
 const Login = ({ setLogged, setUserName, setGameCode, userName, gameCode, setJenga, setCurrentPlayer }) => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:9000/login",{
+    fetch("http://localhost:9000/joingame",{
     method: 'POST',
     headers: {
       'Content-Type':"application/json"

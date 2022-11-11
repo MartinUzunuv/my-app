@@ -1,6 +1,6 @@
 import "./App.css";
 import QuizAndJenga from "./components/QuizAndJenga";
-import Login from "./components/Login";
+import JoinGame from "./components/JoinGame";
 import StartGame from "./components/StartGame";
 import { useState } from "react";
 
@@ -22,7 +22,7 @@ function App() {
       )
       ) : ( 
         <div className="CenterLogin">
-          <Login
+          <JoinGame
           setCurrentPlayer={setCurrentPlayer}
           setJenga={setJenga}
           userName={userName}
