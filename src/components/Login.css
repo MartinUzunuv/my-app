@@ -1,4 +1,4 @@
-.JoinGame {
+.Login {
     background-color: #6DBFD1;
     border-radius: 10px;
     margin: 20px;
@@ -60,4 +60,11 @@
     font-weight: bold;
     padding-left: 5px;
     color: rgb(95, 17, 0);
+}
+
+.SignIn {
+    color: #bd3f36;
+    cursor: pointer;
+    max-width: 65px;
+    text-decoration: underline;
 }

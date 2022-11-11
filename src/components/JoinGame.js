@@ -1,7 +1,7 @@
 import React from "react";
 import "./JoinGame.css";
 
-const Login = ({ setLogged, setUserName, setGameCode, userName, gameCode, setJenga, setCurrentPlayer }) => {
+const JoinGame = ({ setLogged, setUserName, setGameCode, userName, gameCode, setJenga, setCurrentPlayer }) => {
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -23,7 +23,7 @@ const Login = ({ setLogged, setUserName, setGameCode, userName, gameCode, setJen
   };
 
   return (
-    <div className="Login">
+    <div className="JoinGame">
       <form onSubmit={onSubmit}>
         <label className="Label" htmlFor="userName">Username</label>
         <input
@@ -47,4 +47,4 @@ const Login = ({ setLogged, setUserName, setGameCode, userName, gameCode, setJen
   );
 };
 
-export default Login;
+export default JoinGame;
