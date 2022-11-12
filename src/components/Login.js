@@ -5,6 +5,7 @@ import SignIn from './SignIn';
 
 const Login = ({ setAccLogged, setPassword, password, accName, setAccName }) => {
     const [signed, setSigned] = useState(true)
+    const [validLogin, setValidLogin] = useState(true);
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -18,9 +19,13 @@ const Login = ({ setAccLogged, setPassword, password, accName, setAccName }) => 
       })
       .then(res => res.json())
       .then(res => {
-        
+        let valid = res.valid;
+        if (valid) {
+          setAccLogged(true);
+        }else{
+          setValidLogin(false)
+        }
       })
-      setAccLogged(true)
       };
 
       const onClick = () => {
@@ -30,7 +35,9 @@ const Login = ({ setAccLogged, setPassword, password, accName, setAccName }) => 
   return (
     <div className='Login' >{signed ? (
         <form onSubmit={onSubmit}>
-        <label className="Label" htmlFor="userName">Account name</label>
+        <label className="Label" htmlFor="userName">
+        {!validLogin && <div className="Invalid">Username or password incorrecr</div>}
+          Account name</label>
         <input
           className="TextBox"
           type="text"
