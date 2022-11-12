@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import { useState } from "react";
 
 function App() {
+  const [points, setPoints] = useState(0)
   const [accName, setAccName] = useState("")
   const [password, setPassword] = useState("")
   const [accLogged, setAccLogged] = useState(false)
@@ -21,12 +22,13 @@ function App() {
       {/* Username: {userName}
       <br/>
       GameCode: {gameCode} */}
-      {accLogged ? (logged ? (gameStarted?(<QuizAndJenga currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer} jenga={jenga} userName={userName} gameCode={gameCode} />):(
+      {accLogged ? (logged ? (gameStarted?(<QuizAndJenga points={points} currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer} jenga={jenga} userName={userName} gameCode={gameCode} />):(
         <div className="CenterLogin"><StartGame setGameStarted={setGameStarted} gameCode={gameCode} userName={userName} currentPlayer={currentPlayer} /></div>
       )
       ) : ( 
         <div className="CenterLogin">
           <JoinGame
+          accName={accName}
           setCurrentPlayer={setCurrentPlayer}
           setJenga={setJenga}
           userName={userName}
@@ -37,7 +39,7 @@ function App() {
           />
         </div>
       )) : (<div className="CenterLogin">
-        <Login accName={accName} setAccName={setAccName} password={password} setPassword={setPassword} setAccLogged={setAccLogged} />
+        <Login setPoints={setPoints} setUserName={setUserName} accName={accName} setAccName={setAccName} password={password} setPassword={setPassword} setAccLogged={setAccLogged} />
       </div>)}
     </div>
   );

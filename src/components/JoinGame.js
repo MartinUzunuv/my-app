@@ -1,7 +1,7 @@
 import React from "react";
 import "./JoinGame.css";
 
-const JoinGame = ({ setLogged, setUserName, setGameCode, userName, gameCode, setJenga, setCurrentPlayer }) => {
+const JoinGame = ({ accName, setLogged, setUserName, setGameCode, userName, gameCode, setJenga, setCurrentPlayer }) => {
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -30,7 +30,7 @@ const JoinGame = ({ setLogged, setUserName, setGameCode, userName, gameCode, set
           className="TextBox"
           type="text"
           id="userName"
-          placeholder="Username"
+          placeholder={`${accName} (Default)`}
           onChange={(e) => setUserName(e.target.value)}
         />
         <label className="Label" htmlFor="gameCode">Game Code</label>

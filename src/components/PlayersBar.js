@@ -2,7 +2,7 @@ import React from "react";
 import "./PlayersBar.css";
 import { useState, useEffect, useRef } from "react";
 
-const PlayersBar = ({ currentPlayer, gameCode, userName }) => {
+const PlayersBar = ({ points, currentPlayer, gameCode, userName }) => {
   const [players, setPlayers] = useState([]);
 
   const foundPlayers = useRef(false);
@@ -35,10 +35,10 @@ const PlayersBar = ({ currentPlayer, gameCode, userName }) => {
       {players.map((player) =>
         player === currentPlayer ? (
           <div className={`Player ${player === userName && 'Me'}`} key={player} style={{ backgroundColor: "#FF7D63" }}>
-            {player}
+            {player === userName ? (`${player}: ${points}points`) : (player)}
           </div>
         ) : (
-          <div className={`Player ${player === userName && 'Me'}`} key={player}>{player}</div>
+          <div className={`Player ${player === userName && 'Me'}`} key={player}>{player === userName ? (`${player}: ${points}points`) : (player)}</div>
         )
       )}
     </div>

@@ -5,7 +5,7 @@ import "./QuizAndJenga.css";
 import { useState, useRef, useEffect } from "react";
 import PlayersBar from "./PlayersBar";
 
-const QuizAndJenga = ({ jenga, userName, gameCode, currentPlayer, setCurrentPlayer }) => {
+const QuizAndJenga = ({ points, jenga, userName, gameCode, currentPlayer, setCurrentPlayer }) => {
   const [blocks, setBlocks] = useState(jenga);
 
   const [removeBlock, setRemoveBlock] = useState(false);
@@ -62,7 +62,7 @@ getUpdate.current = setInterval(() => {
 
   return (
     <div className="QuizAndJenga">
-      <PlayersBar userName={userName} gameCode={gameCode} currentPlayer={currentPlayer} />
+      <PlayersBar points={points} userName={userName} gameCode={gameCode} currentPlayer={currentPlayer} />
       <QuizPart blocks={blocks} sendJenga={sendJenga} userName={userName} currentPlayer={currentPlayer} setRemoveBlock={setRemoveBlock} removeBlock={removeBlock} />
       <JengaPart
         sendJenga={sendJenga}
