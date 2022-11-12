@@ -20,6 +20,7 @@ const Login = ({ setAccLogged, setPassword, password, accName, setAccName }) => 
       .then(res => {
         
       })
+      setAccLogged(true)
       };
 
       const onClick = () => {
