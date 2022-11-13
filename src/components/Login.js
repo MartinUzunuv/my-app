@@ -48,7 +48,7 @@ const Login = ({
         <form onSubmit={onSubmit}>
           <label className="Label" htmlFor="userName">
             {!validLogin && (
-              <div className="Invalid">Username or password incorrecr</div>
+              <div className="Invalid">Username or password incorrect</div>
             )}
             Account name
           </label>

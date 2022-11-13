@@ -1,7 +1,12 @@
 import React from "react";
 import "./JoinGame.css";
+import { useState } from "react";
+import CreateQuestion from "./CreateQuestion";
 
-const JoinGame = ({ accName, setLogged, setUserName, setGameCode, userName, gameCode, setJenga, setCurrentPlayer }) => {
+const JoinGame = ({ points, accName, setLogged, setUserName, setGameCode, userName, gameCode, setJenga, setCurrentPlayer }) => {
+
+  const [ifCreate, setIfCreate] = useState(false)
+
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -10,10 +15,11 @@ const JoinGame = ({ accName, setLogged, setUserName, setGameCode, userName, game
     headers: {
       'Content-Type':"application/json"
     },
-    body:JSON.stringify({userName:userName, gameCode:gameCode}),
+    body:JSON.stringify({userName:`${userName}: ${points} rp`, gameCode:gameCode}),
   })
   .then(res => res.json())
   .then(res => {
+    setUserName(`${userName}: ${points} rp`)
     let myJenga = res.jenga
     setJenga(myJenga)
     let myCurrentPlayer = res.currentPlayer
@@ -22,8 +28,12 @@ const JoinGame = ({ accName, setLogged, setUserName, setGameCode, userName, game
   })
   };
 
+  const onCreate = () => {
+    setIfCreate(true)
+  }
+
   return (
-    <div className="JoinGame">
+    <div className="JoinGame">{!ifCreate ?
       <form onSubmit={onSubmit}>
         <label className="Label" htmlFor="userName">Username</label>
         <input
@@ -41,8 +51,9 @@ const JoinGame = ({ accName, setLogged, setUserName, setGameCode, userName, game
           placeholder="Party code"
           onChange={(e) => setGameCode(e.target.value)}
         />
-        <input className="SubmitOk" type="submit" value="OK" />
-      </form>
+        <input className="SubmitOk" type="submit" value="Join party" />
+        <div onClick={onCreate} className="OrCreateQuestions">Or create questions</div>
+      </form> : <CreateQuestion />}
     </div>
   );
 };

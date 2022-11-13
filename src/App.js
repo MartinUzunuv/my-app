@@ -22,12 +22,13 @@ function App() {
       {/* Username: {userName}
       <br/>
       GameCode: {gameCode} */}
-      {accLogged ? (logged ? (gameStarted?(<QuizAndJenga points={points} currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer} jenga={jenga} userName={userName} gameCode={gameCode} />):(
+      {accLogged ? (logged ? (gameStarted?(<QuizAndJenga currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer} jenga={jenga} userName={userName} gameCode={gameCode} />):(
         <div className="CenterLogin"><StartGame setGameStarted={setGameStarted} gameCode={gameCode} userName={userName} currentPlayer={currentPlayer} /></div>
       )
       ) : ( 
         <div className="CenterLogin">
           <JoinGame
+          points={points}
           accName={accName}
           setCurrentPlayer={setCurrentPlayer}
           setJenga={setJenga}
