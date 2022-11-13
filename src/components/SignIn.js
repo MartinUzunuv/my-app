@@ -19,17 +19,26 @@ const SignIn = ({ setPassword, password, accName, setAccName, setSigned }) => {
         let valid = res.valid;
         if (valid) {
           setSigned(true);
-        }else{
-            setValidName(false)
+        } else {
+          setValidName(false);
         }
       });
   };
+
+  const OnCancel = () => {
+    setSigned(true);
+  }
 
   return (
     <div>
       <form onSubmit={onSubmit}>
         <label className="Label" htmlFor="userName">
-          Account name {!validName && <div className="Invalid">This name has already been used by someone else</div>}
+          Account name{" "}
+          {!validName && (
+            <div className="Invalid">
+              This name has already been used by someone else
+            </div>
+          )}
         </label>
         <input
           className="TextBox"
@@ -48,7 +57,15 @@ const SignIn = ({ setPassword, password, accName, setAccName, setSigned }) => {
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <input className="SubmitOk" type="submit" value="Sign in" />
+        <button
+          onClick={OnCancel}
+          className="SubmitOk"
+          style={{ float: "left", marginLeft: 2, marginRight: 2 }}
+        >
+          Cancel
+        </button>
+
+        <input className="SubmitOk" style={{marginRight: 2, marginLeft: 2}} type="submit" value="Sign in" />
       </form>
     </div>
   );

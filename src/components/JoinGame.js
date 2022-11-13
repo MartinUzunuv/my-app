@@ -15,11 +15,11 @@ const JoinGame = ({ points, accName, setLogged, setUserName, setGameCode, userNa
     headers: {
       'Content-Type':"application/json"
     },
-    body:JSON.stringify({userName:`${userName}: ${points} rp`, gameCode:gameCode}),
+    body:JSON.stringify({userName:`${userName}: ${Math.floor(Math.sqrt(points))} lvl`, gameCode:gameCode}),
   })
   .then(res => res.json())
   .then(res => {
-    setUserName(`${userName}: ${points} rp`)
+    setUserName(`${userName}: ${Math.floor(Math.sqrt(points))} lvl`)
     let myJenga = res.jenga
     setJenga(myJenga)
     let myCurrentPlayer = res.currentPlayer
@@ -52,8 +52,8 @@ const JoinGame = ({ points, accName, setLogged, setUserName, setGameCode, userNa
           onChange={(e) => setGameCode(e.target.value)}
         />
         <input className="SubmitOk" type="submit" value="Join party" />
-        <div onClick={onCreate} className="OrCreateQuestions">Or create questions</div>
-      </form> : <CreateQuestion />}
+        <div onClick={onCreate} className="OrCreateQuestions">Or create question</div>
+      </form> : <CreateQuestion setIfCreate={setIfCreate} />}
     </div>
   );
 };

@@ -68,5 +68,6 @@
     padding-left: 5px;
     color: #bd3f36;
     cursor: pointer;
+    max-width: 150px;
     text-decoration: underline;
 }
