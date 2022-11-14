@@ -1,38 +1,64 @@
 import React from "react";
 import "./QuizPart.css";
 import { useState } from "react";
+import { useRef } from "react";
 
 const QuizPart = ({ setRemoveBlock, removeBlock, currentPlayer, userName, sendJenga, blocks }) => {
-  const questions = [
-    {
-      q: "my laptop is",
-      a: "asus",
-      b: "Lenovo",
-      c: "samsung",
-      d: "nokia",
-      t: "Lenovo",
-    },
-    {
-      q: "my hair is",
-      a: "fake",
-      b: "none",
-      c: "perfect",
-      d: "short",
-      t: "perfect",
-    },
-    {
-      q: "grass is",
-      a: "red",
-      b: "orange",
-      c: "blue",
-      d: "green",
-      t: "green",
-    },
-  ];
+  // const questions = [
+  //   {
+  //     q: "my laptop is",
+  //     a: "asus",
+  //     b: "Lenovo",
+  //     c: "samsung",
+  //     d: "nokia",
+  //     t: "Lenovo",
+  //   },
+  //   {
+  //     q: "my hair is",
+  //     a: "fake",
+  //     b: "none",
+  //     c: "perfect",
+  //     d: "short",
+  //     t: "perfect",
+  //   },
+  //   {
+  //     q: "grass is",
+  //     a: "red",
+  //     b: "orange",
+  //     c: "blue",
+  //     d: "green",
+  //     t: "green",
+  //   },
+  // ];
+  
+  const once = useRef(true)
 
-  const [question, setQuestion] = useState(
-    questions[Math.floor(Math.random() * questions.length)]
-  );
+  const [question, setQuestion] = useState({q: "", a1: "", a2: "", a3: "", a4: "", t: ""});
+
+  const getQuestion = () => {
+    fetch("http://localhost:9000/getquestion", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({}),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        let q = res.q
+        let a1 = res.a1
+        let a2 = res.a2
+        let a3 = res.a3
+        let a4 = res.a4
+        let t = res.t
+        setQuestion({q: q, a: a1, b: a2, c: a3, d: a4, t: t})
+      });
+  }
+
+  if(once.current){
+    once.current = false
+    getQuestion()
+  }
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -54,7 +80,8 @@ const QuizPart = ({ setRemoveBlock, removeBlock, currentPlayer, userName, sendJe
     }
 
     document.getElementById("Question-form").reset();
-    setQuestion(questions[Math.floor(Math.random() * questions.length)]);
+    getQuestion()
+    // setQuestion(questions[Math.floor(Math.random() * questions.length)]);
   };
 
   return (
