@@ -81,7 +81,7 @@ const QuizPart = ({ setRemoveBlock, removeBlock, currentPlayer, userName, sendJe
 
     document.getElementById("Question-form").reset();
     getQuestion()
-    // setQuestion(questions[Math.floor(Math.random() * questions.length)]);
+    //  setQuestion(questions[Math.floor(Math.random() * questions.length)]);
   };
 
   return (
